@@ -1,3 +1,18 @@
+:root {
+  --color-border-dark: #404040;
+}
+@font-face {
+  font-family: 'PT Sans';
+  src: local('PT Sans'), local('PTSans-Regular'), url('./fonts/PTSans-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'CardText';
+  src: url('./fonts/17717.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
 .sheet form .cursor-click {
   cursor: pointer;
 }
@@ -23,6 +38,10 @@
 .sheet form table td.icon-trash {
   width: 15px;
 }
+.sheet form section.sheet-body {
+  width: 100%;
+  height: 100%;
+}
 .sheet form .editor {
   width: 100%;
   height: 100%;
@@ -35,12 +54,55 @@
   list-style: none;
   margin-left: 0;
 }
-/* Items Sheet */
-/* Actors Sheet */
-.actor.sheet .actor-info .actor-avatar {
-  width: 100px;
-  height: 100px;
+.sheet .for-logo-line {
+  background-image: url("../assets/logo.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 66px;
 }
+.sheet .hidden {
+  display: none;
+}
+.window-app .window-content {
+  background-image: url("../assets/background.jpg");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  font-family: 'PT Sans';
+}
+/* Items Sheet */
+.item-cards .window-content {
+  font-family: CardText;
+  background-image: url("../assets/card.png");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+.item-cards .window-content .sheet-header {
+  text-align: center;
+  margin-top: 60px;
+}
+.item-cards .window-content .sheet-body {
+  text-align: center;
+  margin-top: 200px;
+}
+.item-cards .window-content input,
+.item-cards .window-content span {
+  font-family: CardText;
+  color: #fff;
+  text-align: center;
+  width: 100%;
+  font-size: 18px;
+}
+.item-cards .window-content input::placeholder {
+  color: #F2F2F2;
+}
+.item-cards .window-content input.fs18,
+.item-cards .window-content span.fs18 {
+  font-size: 22px;
+}
+.item-cards .window-content input:focus {
+  box-shadow: 0 0 5px var(--color-shadow-primary);
+}
+/* Actors Sheet */
 .actor.sheet .actor-row {
   display: flex;
   flex-direction: row;
@@ -52,4 +114,79 @@
   flex-direction: column;
   flex-basis: 100%;
   flex: 1;
+}
+.actor.sheet .actor-avatar {
+  flex: 0 0 auto;
+  width: 100px;
+  margin-right: 4px;
+}
+.actor.sheet .actor-name-block {
+  background-image: url("../assets/opts_maxi.png");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  margin: 6px;
+  padding: 3px;
+  line-height: 25px;
+  height: 40px;
+}
+.actor.sheet .actor-name-block input {
+  font-size: 24px;
+  height: 35px;
+}
+.actor.sheet .actor-stat-block {
+  flex: 0 0 auto;
+  width: 30%;
+}
+.actor.sheet .actor-table-label {
+  flex: 0 0 auto;
+  width: 20%;
+  font-size: 14px;
+  padding-left: 3px;
+}
+.actor.sheet .padding-top-12 {
+  padding-top: 18px;
+}
+.actor.sheet .padding-top-5 {
+  padding-top: 10px;
+}
+.actor.sheet .actor-block-icon {
+  font-size: 24px;
+  text-align: center;
+  flex: 0 0 auto;
+  width: 40px;
+  height: 40px;
+  background-image: url("../assets/opts_mini.png");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  padding-top: 8px;
+}
+.actor.sheet .actor-fury-triangle {
+  transform: rotate(180deg);
+  font-size: 18px;
+}
+.actor.sheet .actor-fury-triangle i.fa-triangle {
+  cursor: pointer;
+  color: #828282;
+}
+.actor.sheet .actor-fury-triangle i.fa-triangle.isWound {
+  color: #B83025;
+}
+.actor.sheet .text-align-center {
+  text-align: center;
+}
+.actor.sheet .actor-stat-block .actor-row {
+  margin-bottom: 10px;
+}
+.actor.sheet .block-hor-min {
+  background-image: url("../assets/border-hor-min.png");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  flex: 0 0 auto;
+  width: 200px;
+  height: 66px;
+  text-align: center;
+}
+.actor.sheet .block-hor-min input {
+  margin-top: 17px;
+  font-size: 24px;
 }

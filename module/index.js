@@ -32,3 +32,14 @@ Hooks.once("init", function () {
   initializeHandlebars();
   registerSettings();
 });
+
+
+Hooks.on("createItem", (itemData) => {
+
+  if (itemData.type != 'cards') return;
+
+  const imgPath = `${game.system_path}/assets/card_token.png`;
+
+  itemData.img = imgPath;
+  itemData.token.img = imgPath;
+});

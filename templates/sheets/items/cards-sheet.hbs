@@ -1,0 +1,13 @@
+<form class="{{cssClass}}" autocomplete="off">
+  <header class="sheet-header">
+    {{#ife cssClass 'locked'}}
+    <span class="fs18">{{data.name}}</span>
+    {{else}}
+    <input name="name" type="text" class="fs18" value="{{data.name}}" placeholder="{{localize 'CZT.Item.NamePlaceholder'}}" />
+    {{/ife}}
+  </header>
+
+  <section class="sheet-body">
+    <input name="system.description" value="{{systemData.description}}" placeholder="{{localize "CZT.Item.Cards.Description"}}" />
+  </section>
+</form>

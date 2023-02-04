@@ -1,10 +1,8 @@
-import { WeaponItem } from "./types/WeaponItem.js";
-import { ArmorItem } from "./types/ArmorItem.js";
+import { CardsItem } from "./types/CardsItem.js";
 import { EquipmentItem } from "./types/EquipmentItem.js";
 
 const itemMappings = {
-  weapon: WeaponItem, 
-  armor: ArmorItem, 
+  cards: CardsItem, 
   equipment: EquipmentItem, 
 }
 

@@ -12,8 +12,7 @@ export class HeroActorSheet extends BaseActorSheet {
     return mergeObject(super.defaultOptions, {
       classes: [game.system.id, "sheet", "actor", "actor-hero"],
       width: 720,
-      height: 800,
-      tabs: [{navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "properties"}]
+      height: 800
     });
   }
 
@@ -23,9 +22,6 @@ export class HeroActorSheet extends BaseActorSheet {
 
     context.systemData = context.data.system;
     context.config = CONFIG.CZT;
-
-    context.isWeapons = context.systemData.items.filter((i) => i.type === "weapon");
-    context.isArmor = context.systemData.items.filter((i) => i.type === "armor");
     context.isEquip = context.systemData.items.filter((i) => i.type === "equipment");
     context.items = context.systemData.items;
 
@@ -33,13 +29,14 @@ export class HeroActorSheet extends BaseActorSheet {
     return context;
   }
 
-  activateListeners(html) {
+  async activateListeners(html) {
     super.activateListeners(html);
 
-    html.find('.sheet-roll-weapon').click(evt => this._onActorRollWeapon(evt));
-    html.find('.sheet-roll-attrs').click(evt => this._onActorRollAttrs(evt));
+    html.find('.actor-fury-triangle i').click(evt => this._onCheckWound(evt));
 
-    html.find('.sheet-item-del').click(evt => this._onActorItemDel(evt));
+    //html.find('.sheet-roll-attrs').click(evt => this._onActorRollAttrs(evt));
+
+    //html.find('.sheet-item-del').click(evt => this._onActorItemDel(evt));
   }
 
   async _extractItem(data) {
@@ -53,6 +50,15 @@ export class HeroActorSheet extends BaseActorSheet {
     }
   }
   
+  async _onCheckWound(evt) {
+    evt.preventDefault();
+    const wound_id = $(evt.currentTarget).attr('wound-name');
+    const wound_current = duplicate(this.actor.system.wounds[wound_id]);
+    const wound_new = !wound_current;
+    await this.actor.update({ [`system.wounds.${wound_id}`] : wound_new});
+  }
+
+
   async _onActorRollWeapon(evt) {
     evt.preventDefault();
     const weapon_id = $(evt.currentTarget).closest('tr').attr('item-id');

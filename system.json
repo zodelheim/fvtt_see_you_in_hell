@@ -21,7 +21,13 @@
     "styles/index.css"
   ],
   "packs": [
-    
+    {
+      "name": "cards",
+      "label": "Карточки заданий",
+      "system": "see-you-in-hell",
+      "path": "packs/cards.db",
+      "type": "Item"
+    }
   ],
   "languages": [
     {

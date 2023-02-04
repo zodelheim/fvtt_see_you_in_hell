@@ -1,10 +1,8 @@
-import { WeaponItemSheet } from "./sheets/WeaponItemSheet.js";
-import { ArmorItemSheet } from "./sheets/ArmorItemSheet.js";
+import { CardsItemSheet } from "./sheets/CardsItemSheet.js";
 import { EquipmentItemSheet } from "./sheets/EquipmentItemSheet.js";
 
 const itemMappingsSheets = {
-  weapon: WeaponItemSheet, 
-  armor: ArmorItemSheet, 
+  cards: CardsItemSheet, 
   equipment: EquipmentItemSheet, 
 }
 

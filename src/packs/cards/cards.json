@@ -1,0 +1,200 @@
+[
+  {
+    "name": "Окончить мучения друга",
+    "type": "cards",
+    "img": "systems/see-you-in-hell/assets/card_token.png",
+    "folder": null,
+    "data": {
+      "description": "Чем ты ему обязан?"
+    }
+  },
+  {
+    "name": "Починить АЛТ-поле",
+    "type": "cards",
+    "img": "systems/see-you-in-hell/assets/card_token.png",
+    "folder": null,
+    "data": {
+      "description": "Что мешает?"
+    }
+  },
+  {
+    "name": "Добыть Эскалибур",
+    "type": "cards",
+    "img": "systems/see-you-in-hell/assets/card_token.png",
+    "folder": null,
+    "data": {
+      "description": "Что это?"
+    }
+  },
+  {
+    "name": "Эвакуироваться",
+    "type": "cards",
+    "img": "systems/see-you-in-hell/assets/card_token.png",
+    "folder": null,
+    "data": {
+      "description": "Куда и на чём?"
+    }
+  },
+  {
+    "name": "Спасти выживших",
+    "type": "cards",
+    "img": "systems/see-you-in-hell/assets/card_token.png",
+    "folder": null,
+    "data": {
+      "description": "Где они и кто они?"
+    }
+  },
+  {
+    "name": "Прервать ритуал",
+    "type": "cards",
+    "img": "systems/see-you-in-hell/assets/card_token.png",
+    "folder": null,
+    "data": {
+      "description": "Кто его проводит и зачем?"
+    }
+  },
+  {
+    "name": "Скачать секретные данные",
+    "type": "cards",
+    "img": "systems/see-you-in-hell/assets/card_token.png",
+    "folder": null,
+    "data": {
+      "description": "Что в них?"
+    }
+  },
+  {
+    "name": "Остановить спятившего наставника",
+    "type": "cards",
+    "img": "systems/see-you-in-hell/assets/card_token.png",
+    "folder": null,
+    "data": {
+      "description": "Когда ваши пути разошлись?"
+    }
+  },
+  {
+    "name": "Исследовать брешь",
+    "type": "cards",
+    "img": "systems/see-you-in-hell/assets/card_token.png",
+    "folder": null,
+    "data": {
+      "description": "Кто её создал и зачем?"
+    }
+  },
+  {
+    "name": "Войти в портал",
+    "type": "cards",
+    "img": "systems/see-you-in-hell/assets/card_token.png",
+    "folder": null,
+    "data": {
+      "description": "Что на другой стороне?"
+    }
+  },
+  {
+    "name": "Разрушить портал",
+    "type": "cards",
+    "img": "systems/see-you-in-hell/assets/card_token.png",
+    "folder": null,
+    "data": {
+      "description": "Что из него лезет?"
+    }
+  },
+  {
+    "name": "Выключить демонический двигатель",
+    "type": "cards",
+    "img": "systems/see-you-in-hell/assets/card_token.png",
+    "folder": null,
+    "data": {
+      "description": "Зачем он нужен?"
+    }
+  },
+  {
+    "name": "Спасти потомка",
+    "type": "cards",
+    "img": "systems/see-you-in-hell/assets/card_token.png",
+    "folder": null,
+    "data": {
+      "description": "Кем он тебе приходится?"
+    }
+  },
+  {
+    "name": "Запустить установку Мюрквид",
+    "type": "cards",
+    "img": "systems/see-you-in-hell/assets/card_token.png",
+    "folder": null,
+    "data": {
+      "description": "Что она делает?"
+    }
+  },
+  {
+    "name": "Доставить Монолит",
+    "type": "cards",
+    "img": "systems/see-you-in-hell/assets/card_token.png",
+    "folder": null,
+    "data": {
+      "description": "Куда и зачем?"
+    }
+  },
+  {
+    "name": "Освободить души",
+    "type": "cards",
+    "img": "systems/see-you-in-hell/assets/card_token.png",
+    "folder": null,
+    "data": {
+      "description": "Почему это важно?"
+    }
+  },
+  {
+    "name": "Освободить подопытных",
+    "type": "cards",
+    "img": "systems/see-you-in-hell/assets/card_token.png",
+    "folder": null,
+    "data": {
+      "description": "Что с ними сделали?"
+    }
+  },
+  {
+    "name": "Связаться с помощником",
+    "type": "cards",
+    "img": "systems/see-you-in-hell/assets/card_token.png",
+    "folder": null,
+    "data": {
+      "description": "Как и зачем?"
+    }
+  },
+  {
+    "name": "Отправить послание на случай смерти",
+    "type": "cards",
+    "img": "systems/see-you-in-hell/assets/card_token.png",
+    "folder": null,
+    "data": {
+      "description": "Кому и куда?"
+    }
+  },
+  {
+    "name": "Исследовать ДНК одержимого",
+    "type": "cards",
+    "img": "systems/see-you-in-hell/assets/card_token.png",
+    "folder": null,
+    "data": {
+      "description": "Почему это важно?"
+    }
+  },
+  {
+    "name": "Уберечь ученика",
+    "type": "cards",
+    "img": "systems/see-you-in-hell/assets/card_token.png",
+    "folder": null,
+    "data": {
+      "description": "От чего?"
+    }
+  },
+  {
+    "name": "Найти главное оружие демонов",
+    "type": "cards",
+    "img": "systems/see-you-in-hell/assets/card_token.png",
+    "folder": null,
+    "data": {
+      "description": "Где его прячут?"
+    }
+  }
+]

@@ -1,9 +1,8 @@
 export const preloadHandlebarsTemplates = async function () {
   // Define template paths to load
   const templatePaths = [
-    `${game.system_path}/templates/sheets/items/armor-sheet.hbs`,
     `${game.system_path}/templates/sheets/items/equipment-sheet.hbs`,
-    `${game.system_path}/templates/sheets/items/weapon-sheet.hbs`,
+    `${game.system_path}/templates/sheets/items/cards-sheet.hbs`,
 
     `${game.system_path}/templates/sheets/actors/hero-sheet.hbs`,
     `${game.system_path}/templates/sheets/actors/enemy-sheet.hbs`,

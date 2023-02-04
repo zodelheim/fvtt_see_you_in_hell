@@ -7,15 +7,7 @@
   .sheet-item-del {
 
   }
-
-  .actor-info {
-  
-    .actor-avatar {
-      width: 100px;
-      height: 100px;
-    }
-  }
-  
+ 
   .actor-items-equipment {
 
   }
@@ -40,5 +32,92 @@
     flex-direction: column;
     flex-basis: 100%;
     flex: 1;
+  }
+
+
+  .actor-avatar {
+    flex: 0 0 auto;
+    width: 100px;
+    margin-right: 4px;
+  }
+
+  .actor-name-block {
+    background-image: url("../assets/opts_maxi.png");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    margin: 6px;
+    padding: 3px;
+    line-height: 25px;
+    height: 40px;
+    input {
+      font-size: 24px;
+      height: 35px;
+    }
+  }
+
+  .actor-stat-block {
+    flex: 0 0 auto;
+    width: 30%;
+  }
+
+  .actor-table-label {
+    flex: 0 0 auto;
+    width: 20%;
+    font-size: 14px;
+    padding-left: 3px;
+  }
+  .padding-top-12 {
+    padding-top: 18px;
+  }
+  .padding-top-5 {
+    padding-top: 10px;
+  }
+
+  .actor-block-icon {
+    font-size: 24px;
+    text-align: center;
+    flex: 0 0 auto;
+    width: 40px;
+    height: 40px;
+    background-image: url("../assets/opts_mini.png");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    padding-top: 8px;
+  }
+
+  .actor-fury-triangle {
+    transform: rotate(180deg);
+    font-size: 18px;
+
+    i.fa-triangle {
+      cursor:pointer;
+      color: #828282;
+    }
+    i.fa-triangle.isWound {
+      color: #B83025;
+    }
+  }
+
+  .text-align-center {
+    text-align: center;
+  }
+  .actor-stat-block {
+    .actor-row {
+      margin-bottom: 10px;
+    }
+  }
+
+  .block-hor-min {
+    background-image: url("../assets/border-hor-min.png");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    flex: 0 0 auto;
+    width: 200px;
+    height: 66px;
+    text-align: center;
+    input {
+      margin-top: 17px;
+      font-size: 24px;
+    }
   }
 }

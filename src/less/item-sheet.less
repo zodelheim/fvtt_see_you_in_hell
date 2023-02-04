@@ -1,6 +1,40 @@
 .item.sheet {
   
-  .item-image {
+  
+}
 
+.item-cards {
+  .window-content {
+    font-family: CardText;
+    background-image: url("../assets/card.png");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+
+    .sheet-header {
+      text-align: center;
+      margin-top: 60px;
+    }
+    .sheet-body {
+      text-align: center;
+      margin-top: 200px;
+    }
+    input, span {
+      font-family: CardText;
+      color: #fff;
+      text-align: center;
+      width:100%;
+      font-size: 18px;
+
+    }
+    input::placeholder {
+      color: #F2F2F2
+    }
+
+    input.fs18, span.fs18 {
+      font-size: 22px;
+    }
+    input:focus {
+      box-shadow: 0 0 5px var(--color-shadow-primary);
+    }
   }
 }
