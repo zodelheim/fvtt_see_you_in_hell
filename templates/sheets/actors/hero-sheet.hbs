@@ -61,11 +61,55 @@
       </div>
     </div>
   </div>
-  <div class="actor-row">
-    <div class="actor-column"></div>
-    <div class="actor-column"></div>
-    <div class="actor-column"></div>
-  </div>
+
+  <table class="Approaches">
+    <tr>
+      <td colspan="6"></td>
+      <td class="table-equipment-caption">{{localize "CZT.Actor.Inventory.itEquips"}}</td>
+    </tr>
+    <tr>
+      <td rowspan="3">
+        <div class="actor-block-icon actor-block-sys">
+          <i class="fa-solid fa-square-plus"></i>
+        </div>
+      </td>
+      <td rowspan="3"></td>
+      <td class="table-130px table-align-right">
+        {{localize "CZT.Actor.Approaches.Bloodthirsty"}}&nbsp;
+        <input type="radio" name="system.approaches.BloodthirstyColdBlooded" value="1"{{#ife systemData.approaches.BloodthirstyColdBlooded "1"}} checked="checked"{{/ife}} />
+      </td>
+      <td class="table-rombs"><i class="fa-solid fa-rhombus approaches-rombs"></i></td>
+      <td class="table-130px">
+        <input type="radio" name="system.approaches.BloodthirstyColdBlooded" value="2"{{#ife systemData.approaches.BloodthirstyColdBlooded "2"}} checked="checked"{{/ife}} />&nbsp;
+        {{localize "CZT.Actor.Approaches.ColdBlooded"}}        
+      </td>
+      <td rowspan="3"></td>
+      <td rowspan="3" class="table-equipment">equip</td>
+    </tr>
+    <tr>
+      <td class="table-align-right">
+        {{localize "CZT.Actor.Approaches.Elusive"}}&nbsp;
+        <input type="radio" name="system.approaches.ElusiveImpenetrable" value="1"{{#ife systemData.approaches.ElusiveImpenetrable "1"}} checked="checked"{{/ife}} />
+      </td>
+      <td class="table-rombs"><i class="fa-solid fa-rhombus approaches-rombs"></i></td>
+      <td>
+        <input type="radio" name="system.approaches.ElusiveImpenetrable" value="2"{{#ife systemData.approaches.ElusiveImpenetrable "2"}} checked="checked"{{/ife}} />&nbsp;  
+        {{localize "CZT.Actor.Approaches.Impenetrable"}}        
+      </td>
+    </tr>
+    <tr>
+      <td class="table-align-right">
+        {{localize "CZT.Actor.Approaches.Confident"}}&nbsp;
+        <input type="radio" name="system.approaches.ConfidentCalculating" value="1"{{#ife systemData.approaches.ConfidentCalculating "1"}} checked="checked"{{/ife}} />
+      </td>
+      <td class="table-rombs"><i class="fa-solid fa-rhombus approaches-rombs"></i></td>
+      <td>
+        <input type="radio" name="system.approaches.ConfidentCalculating" value="2"{{#ife systemData.approaches.ConfidentCalculating "2"}} checked="checked"{{/ife}} />&nbsp;  
+        {{localize "CZT.Actor.Approaches.Calculating"}}
+      </td>
+    </tr>
+  </table>
+
   <div class="actor-row">
     <div class="actor-column">карты</div>
   </div>

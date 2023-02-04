@@ -19,12 +19,9 @@
         },
         "fury": 0,
         "approaches": {
-          "Bloodthirsty": false,
-          "ColdBlooded": false,
-          "Impenetrable": false,
-          "Elusive": false,
-          "Confident": false,
-          "Calculating": false       
+          "BloodthirstyColdBlooded": 0,
+          "ElusiveImpenetrable": 0,
+          "ConfidentCalculating": 0     
         },
         "cards": []
 
