@@ -1,0 +1,55 @@
+.sheet form .cursor-click {
+  cursor: pointer;
+}
+.sheet form input,
+.sheet form select {
+  background: none;
+  border: 1px solid transparent;
+}
+.sheet form table {
+  margin: 0;
+  border: 0;
+  background: none;
+  border-collapse: separate;
+  border-spacing: 2px;
+}
+.sheet form table td.table-line-img {
+  width: 30px;
+  height: 30px;
+}
+.sheet form table td.table-line-img img {
+  border: 0;
+}
+.sheet form table td.icon-trash {
+  width: 15px;
+}
+.sheet form .editor {
+  width: 100%;
+  height: 100%;
+}
+.sheet form ul {
+  margin-top: 0;
+  padding: 0;
+}
+.sheet form ul li {
+  list-style: none;
+  margin-left: 0;
+}
+/* Items Sheet */
+/* Actors Sheet */
+.actor.sheet .actor-info .actor-avatar {
+  width: 100px;
+  height: 100px;
+}
+.actor.sheet .actor-row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+}
+.actor.sheet .actor-column {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 100%;
+  flex: 1;
+}

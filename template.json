@@ -1,0 +1,58 @@
+{
+  "Actor": {
+    "types": [
+      "hero",
+      "enemy"
+    ],
+    "templates": {
+      "baseActor": {
+        "description": "",
+        "items": [],
+        "concept": "",
+        "myitem": "",
+        "wounds": {
+          "w1": false,
+          "w2": false,
+          "w3": false,
+          "w4": false,
+          "w5": false
+        },
+        "fury": 0,
+        "approaches": {
+          "Bloodthirsty": false,
+          "ColdBlooded": false,
+          "Impenetrable": false,
+          "Elusive": false,
+          "Confident": false,
+          "Calculating": false       
+        },
+        "cards": []
+
+      }
+    },
+    "hero": {
+      "templates": ["baseActor"]
+    },
+    "enemy": {
+      "templates": ["baseActor"]
+    }
+  },
+  "Item": {
+    "types": [
+      "equipment",
+      "cards"
+    ],
+    "templates": {
+      "baseItem": {
+        "description": "",
+        "formula": ""
+      }
+    },
+    "equipment": {
+      "templates": ["baseItem"]
+    },
+    "cards": {
+      "templates": ["baseItem"]
+    }
+  }
+}

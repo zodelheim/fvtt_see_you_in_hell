@@ -1,0 +1,75 @@
+<form class="{{cssClass}}" autocomplete="off">
+{{!-- Sheet Header --}}
+<div class="actor-wrapper actor-info">
+  <div class="actor-row">
+    <div class="actor-column">
+        <img class="actor-avatar" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" />
+    </div>
+    <div class="actor-column">
+      <ul>
+        <li>{{localize 'CZT.Common.Title'}}</li>
+        <li>{{localize 'CZT.Common.SubTitle'}}</li>
+      </ul>
+    </div>
+    <div class="actor-column">
+      <input name="name" type="text" value="{{data.name}}" placeholder="{{localize "CZT.Actor.NamePlaceholder"}}" />
+    </div>
+  </div>
+</div>
+{{!-- Sheet Tab Navigation --}}
+<nav class="sheet-tabs tabs" data-group="primary">
+  <a class="item" data-tab="properties">{{localize "CZT.Common.Navs.Properties"}}</a>
+  <a class="item" data-tab="skills">{{localize "CZT.Common.Navs.Skills"}}</a>
+  <a class="item" data-tab="description">{{localize "CZT.Common.Navs.ForNotes"}}</a>
+</nav>
+{{!-- Sheet Body --}}
+<section class="sheet-body">
+  
+  {{!-- Properties Tab --}}
+  <div class="tab properties" data-group="primary" data-tab="properties">
+    <div class="actor-wrapper">
+      <div class="actor-row">
+        <div class="actor-column">
+  
+          <h3>{{localize "CZT.Actor.Inventory.itEquips"}}</h3>
+          
+          <table class="actor-items-equipment">
+            {{#each items as |item key|}}
+              <tr item-id="{{item.id}}" item-type="{{item.type}}" class="cursor-click">
+                <td class="table-line-img"><img src="{{item.img}}" alt="{{item.name}}"></td>
+                <td class="sheet-roll-weapon">{{item.name}}</td>
+                <td></td>
+                <td class="icon-trash"><i class="fa-solid fa-trash sheet-item-del"></i></td>
+              </tr>
+            {{else}}
+              <tr><td>{{localize "CZT.Actor.Inventory.itNoEquips"}}</td></tr>
+            {{/each}}
+          </table>
+         
+      </div>
+    </div>
+  </div>
+
+  {{!-- Skills Tab --}}
+  <div class="tab skills" data-group="primary" data-tab="skills">
+    <div class="actor-wrapper">
+      <div class="actor-row">
+        <div class="actor-column">
+          <h3>{{localize "CZT.Item.Name"}} 1</h3>
+        
+        </div>
+        <div class="actor-column">
+          <h3>{{localize "CZT.Item.Name"}} 2</h3>
+        
+        </div>
+      </div>
+    </div>
+  </div>
+
+  {{!-- Description Tab --}}
+  <div class="tab" data-group="primary" data-tab="description">
+    {{editor systemData.description target="system.description" button=true engine="tinymce" collaborate=false}}
+  </div>
+
+</section>
+</form>

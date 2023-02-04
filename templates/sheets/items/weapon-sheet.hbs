@@ -1,0 +1,25 @@
+<form class="{{cssClass}}" autocomplete="off">
+  {{!-- Sheet Header --}}
+  <header class="sheet-header flexrow">
+    <img class="item-image" src="{{data.img}}" data-edit="img" title="{{data.name}}" />
+    <h1>
+        <input name="name" type="text" value="{{data.name}}" placeholder="{{localize 'CZT.Item.NamePlaceholder'}}" />
+    </h1>
+  </header>
+  {{!-- Sheet Tab Navigation --}}
+  <nav class="sheet-tabs tabs" data-group="primary">
+    <a class="item" data-tab="properties">{{localize "CZT.Common.Navs.Properties"}}</a>
+    <a class="item" data-tab="description">{{localize "CZT.Common.Navs.Description"}}</a>
+  </nav>
+  {{!-- Sheet Body --}}
+  <section class="sheet-body">
+    {{!-- Description Tab --}}
+    <div class="tab" data-group="primary" data-tab="description">
+      {{editor systemData.description target="system.description" button=true engine="tinymce" collaborate=false}}
+    </div>
+    {{!-- Properties Tab --}}
+    <div class="tab properties" data-group="primary" data-tab="properties">  
+      Properties
+    </div>
+  </section>
+</form>
