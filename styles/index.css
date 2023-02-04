@@ -190,3 +190,19 @@
   margin-top: 17px;
   font-size: 24px;
 }
+.actor.sheet .actor-help {
+  background-image: url("../assets/help-block.png");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  padding: 4px;
+}
+.actor.sheet .actor-help .red-li-p {
+  color: #B83025;
+  transform: rotate(-90deg);
+  font-size: 7px;
+}
+.actor.sheet .actor-column-50 {
+  width: 50%;
+  float: left;
+  padding-right: 15px;
+}
