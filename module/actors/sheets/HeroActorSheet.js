@@ -36,7 +36,7 @@ export class HeroActorSheet extends BaseActorSheet {
 
     //html.find('.sheet-roll-attrs').click(evt => this._onActorRollAttrs(evt));
 
-    //html.find('.sheet-item-del').click(evt => this._onActorItemDel(evt));
+    html.find('.sheet-item-del').click(evt => this._onActorItemDel(evt));
   }
 
   async _extractItem(data) {
@@ -150,7 +150,7 @@ export class HeroActorSheet extends BaseActorSheet {
     let newEquips = [];
 
     items.forEach(el => {
-      if(el.id !== item_id) {
+      if(el.id !== item_id ) {
         newEquips.push(el);
       }
     });
@@ -160,7 +160,7 @@ export class HeroActorSheet extends BaseActorSheet {
 
   async _onActorItemDel(evt) {
     evt.preventDefault();
-    const item_id = $(evt.currentTarget).closest('tr').attr('item-id');
+    const item_id = $(evt.currentTarget).closest('li').attr('item-id');
 
     const tpl = await renderTemplate(`${game.system_path}/templates/dialogs/sheet-item-del.hbs`);
     return new Promise(resolve => {

@@ -201,6 +201,14 @@
   transform: rotate(-90deg);
   font-size: 7px;
 }
+.actor.sheet .actor-card-list {
+  background-image: url("../assets/help-block.png");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  padding: 4px;
+  height: 170px;
+  margin-bottom: 3px;
+}
 .actor.sheet .actor-column-50 {
   width: 50%;
   float: left;
@@ -228,10 +236,39 @@
 .actor.sheet .Approaches .table-130px {
   width: 130px;
 }
+.actor.sheet .Approaches .table-115px {
+  width: 115px;
+}
+.actor.sheet .Approaches .table-equipment {
+  text-align: right;
+  background-image: url("../assets/equip.png");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  padding-right: 5px;
+}
 .actor.sheet .Approaches .table-equipment-caption {
   text-align: center;
   width: 200px;
 }
 .actor.sheet .Approaches .table-align-right {
   text-align: right;
+}
+.actor.sheet .Approaches .aprt-right {
+  width: 5px;
+  background-image: url("../assets/apt-right.png");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+.actor.sheet .Approaches .aprt-left {
+  width: 5px;
+  background-image: url("../assets/apt-left.png");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+.actor.sheet .Approaches .actor-block-sys {
+  padding-top: 5px;
+  margin-left: 98px;
+}
+.actor.sheet .Approaches .sheet-item-del {
+  cursor: pointer;
 }

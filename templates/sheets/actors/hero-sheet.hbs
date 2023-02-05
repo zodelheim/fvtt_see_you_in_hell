@@ -73,8 +73,8 @@
           <i class="fa-solid fa-square-plus"></i>
         </div>
       </td>
-      <td rowspan="3"></td>
-      <td class="table-130px table-align-right">
+      <td rowspan="3" class="aprt-left">&nbsp;</td>
+      <td class="table-115px table-align-right">
         {{localize "CZT.Actor.Approaches.Bloodthirsty"}}&nbsp;
         <input type="radio" name="system.approaches.BloodthirstyColdBlooded" value="1"{{#ife systemData.approaches.BloodthirstyColdBlooded "1"}} checked="checked"{{/ife}} />
       </td>
@@ -83,8 +83,16 @@
         <input type="radio" name="system.approaches.BloodthirstyColdBlooded" value="2"{{#ife systemData.approaches.BloodthirstyColdBlooded "2"}} checked="checked"{{/ife}} />&nbsp;
         {{localize "CZT.Actor.Approaches.ColdBlooded"}}        
       </td>
-      <td rowspan="3"></td>
-      <td rowspan="3" class="table-equipment">equip</td>
+      <td rowspan="3" class="aprt-right">&nbsp;</td>
+      <td rowspan="3" class="table-equipment">
+        <ul>
+          {{#each isEquip as |item key|}}
+            <li item-id="{{item.id}}" item-type="{{item.type}}">
+              {{item.name}} <i class="fa-solid fa-trash sheet-item-del"></i>
+            </li>
+          {{/each}}
+        </ul>
+      </td>
     </tr>
     <tr>
       <td class="table-align-right">
@@ -110,8 +118,11 @@
     </tr>
   </table>
 
-  <div class="actor-row">
-    <div class="actor-column">карты</div>
+  <div class="actor-row actor-card-list">
+    <div class="actor-column">
+
+
+    </div>
   </div>
 
   <div class="actor-row actor-help">
@@ -136,34 +147,4 @@
     </div>
   </div>
 </div>
-
-{{!-- Sheet Body --}}
-<section class="sheet-body">
-  
-  {{!-- Properties Tab --}}
-  <div class="tab properties" data-group="primary" data-tab="properties">
-    <div class="actor-wrapper">
-      <div class="actor-row">
-        <div class="actor-column">
-  
-          <h3>{{localize "CZT.Actor.Inventory.itEquips"}}</h3>
-          
-          <table class="actor-items-equipment">
-            {{#each items as |item key|}}
-              <tr item-id="{{item.id}}" item-type="{{item.type}}" class="cursor-click">
-                <td class="table-line-img"><img src="{{item.img}}" alt="{{item.name}}"></td>
-                <td class="sheet-roll-weapon">{{item.name}}</td>
-                <td></td>
-                <td class="icon-trash"><i class="fa-solid fa-trash sheet-item-del"></i></td>
-              </tr>
-            {{else}}
-              <tr><td>{{localize "CZT.Actor.Inventory.itNoEquips"}}</td></tr>
-            {{/each}}
-          </table>
-         
-      </div>
-    </div>
-  </div>
-
-</section>
 </form>
