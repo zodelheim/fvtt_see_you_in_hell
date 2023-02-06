@@ -1,0 +1,24 @@
+ <div class="dice-roll">
+  <div class="dice-result">
+    <div class="dice-formula">
+
+      <div class="dice-tooltip expanded">
+        <section class="tooltip-part">
+          <div class="dice">
+            <header class="part-header flexrow">
+              <span class="part-formula">{{localize "CZT.Rolls.Table.RR_L"}} {{dice_num}} {{localize "CZT.Rolls.Table.RR_From"}} {{all_dices}}</span>   
+              <span class="part-total">{{total}}</span>
+            </header>
+            <ol class="dice-rolls">
+              {{#each no_roll as |dice key|}}
+              <li class="roll die d6 min dice-fixed">1</li>
+              {{/each}}
+              {{#each terms as |dice key|}}
+              <li class="roll die d6{{#ife dice.result 1}} min{{/ife}}{{#ife dice.result 6}} max{{/ife}}{{#ife dice.result 5}} max{{/ife}}">{{dice.result}}</li>
+              {{/each}}
+            </ol>
+        </div>
+      </section>
+    </div>
+  </div>
+</div>

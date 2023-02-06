@@ -62,6 +62,7 @@ export class HeroActorSheet extends BaseActorSheet {
     html.find('.get-card').click(evt => this._onActorGetCard(evt));
   }
 
+
   async _extractItem(data) {
 
     const cmpnd_key = `Compendium.${game.system.id}.`;
@@ -176,7 +177,7 @@ export class HeroActorSheet extends BaseActorSheet {
       speaker: ChatMessage.getSpeaker(),
       content: template
     });
-    
+
   }
 
   async _onActorRollApproach(evt) {
