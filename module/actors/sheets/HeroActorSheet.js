@@ -7,6 +7,25 @@ import { genId, getRandomInt } from "../../utils.js";
  */
 export class HeroActorSheet extends BaseActorSheet {
 
+  /* ---------------- Context Menu -------------- */
+  itemCardMenu = [
+    {
+      name: game.i18n.localize("CZT.Common.Menu.Delete"),
+      icon: '',
+      callback: element => {
+        this._onActorItemDelConfirm(element[0].dataset.id, "");
+      }
+    },
+    {
+      name: game.i18n.localize("CZT.Common.Menu.Success"),
+      icon: '',
+      callback: element => {
+        this._onActorCardSuccess(element[0].dataset.id);
+      }
+    }
+  ];
+  /* -------------------------------------------- */
+
   /** @override */
   static get defaultOptions() {
     return mergeObject(super.defaultOptions, {
@@ -31,6 +50,8 @@ export class HeroActorSheet extends BaseActorSheet {
 
   async activateListeners(html) {
     super.activateListeners(html);
+
+    new ContextMenu(html, '.cards-list li', this.itemCardMenu);
 
     html.find('.actor-fury-triangle i').click(evt => this._onCheckWound(evt));
 
@@ -62,6 +83,17 @@ export class HeroActorSheet extends BaseActorSheet {
     }
   }
   
+  async _onActorCardSuccess(card_id) {
+    let items = duplicate(this.actor.system.items);
+    items.forEach(el => {
+      if(el.id === card_id ) {
+        el.success = true;
+      }
+    });
+
+    this.actor.update({"system.items": items});
+  }
+
   async _onActorGetCard(evt) {
     evt.preventDefault();
     // Пробуем затащить из локальных карт, если нет, то из компендума
@@ -83,7 +115,8 @@ export class HeroActorSheet extends BaseActorSheet {
       "name": item.name,
       "img": item.img,
       "type": item.type,
-      "description": item.system.description
+      "description": item.system.description,
+      "success": false
     };
 
     items.push(newItem);

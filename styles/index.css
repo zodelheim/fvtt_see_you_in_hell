@@ -105,6 +105,10 @@
 .window-content .dialog-content .dialog-select-mofidy .actor-column:last-child select {
   width: 100%;
 }
+.cards-list #context-menu li {
+  text-align: left;
+  font-size: 16px;
+}
 /* Items Sheet */
 .item-cards .window-content {
   font-family: CardText;
@@ -350,7 +354,7 @@
   width: 100%;
   height: 100%;
 }
-.actor.sheet .cards-list li {
+.actor.sheet .cards-list .card-item {
   display: inline-block;
   flex: 0 0 auto;
   height: 139px;
@@ -366,14 +370,17 @@
   font-family: CardText;
   position: relative;
 }
-.actor.sheet .cards-list li .card-name {
+.actor.sheet .cards-list .card-item .card-name {
   width: 100%;
   padding: 15px 3px 0px;
 }
-.actor.sheet .cards-list li .card-desc {
+.actor.sheet .cards-list .card-item .card-desc {
   position: absolute;
   bottom: 26px;
   width: 100%;
+}
+.actor.sheet .cards-list .card-item.success {
+  color: chartreuse;
 }
 .actor.sheet .cards-list li.is-done {
   padding-top: 3px;

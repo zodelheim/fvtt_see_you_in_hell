@@ -123,7 +123,7 @@
     <div class="actor-column">
       <ul class="cards-list">
         {{#each isCards as |item key|}}
-          <li item-id="{{item.id}}" item-type="{{item.type}}">
+          <li class="card-item {{#if item.success}} success{{/if}}" data-id="{{item.id}}" data-type="{{item.type}}">
             <div class="card-name">{{item.name}}</div>
             <div class="card-desc">{{item.description}}</div>
           </li>
