@@ -72,3 +72,48 @@
   background-size: 100% 100%;
   font-family: 'PT Sans';
 }
+
+.window-content .dialog-content {
+  padding-top: 5px;
+  background-image:  url("../assets/background.jpg");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  font-family: 'PT Sans';
+
+  .actor-row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+  }
+
+  .actor-column {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 100%;
+    flex: 1;
+  }
+
+  .dialog-select-mofidy {
+
+    margin-bottom: 5px;
+    
+    .actor-column {
+      line-height: 25px;
+      flex: 0 0 auto;
+    }
+    .actor-column:first-child {
+      width: 70%;
+      
+      font-weight: bold;
+    }
+    .actor-column:last-child {
+      width: 30%;
+      select {
+        width: 100%
+      }
+    }
+    
+  }
+
+}

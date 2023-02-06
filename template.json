@@ -9,7 +9,9 @@
         "description": "",
         "items": [],
         "concept": "",
+        "conceptInUse": true,
         "myitem": "",
+        "myitemInUse": true,
         "wounds": {
           "w1": false,
           "w2": false,
@@ -17,7 +19,7 @@
           "w4": false,
           "w5": false
         },
-        "fury": 0,
+        "fury": 1,
         "approaches": {
           "BloodthirstyColdBlooded": 0,
           "ElusiveImpenetrable": 0,

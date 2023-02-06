@@ -64,64 +64,71 @@
 
   <table class="Approaches">
     <tr>
-      <td colspan="6"></td>
+      <td colspan="7"></td>
       <td class="table-equipment-caption">{{localize "CZT.Actor.Inventory.itEquips"}}</td>
     </tr>
     <tr>
+      <td rowspan="3" class="get-card" title="{{localize "CZT.Item.Cards.Gets"}}"><i class="fa-solid fa-arrow-down-to-square"></i></td>
       <td rowspan="3">
         <div class="actor-block-icon actor-block-sys">
           <i class="fa-solid fa-square-plus"></i>
         </div>
       </td>
       <td rowspan="3" class="aprt-left">&nbsp;</td>
-      <td class="table-115px table-align-right">
-        {{localize "CZT.Actor.Approaches.Bloodthirsty"}}&nbsp;
+      <td class="table-115px table-align-right{{#ife systemData.approaches.BloodthirstyColdBlooded "1"}} border-round-true2{{/ife}}">
+        <span class="roll-approach" appr-id="BloodthirstyColdBlooded" appr-val="1">{{localize "CZT.Actor.Approaches.Bloodthirsty"}}&nbsp;</span>
         <input type="radio" name="system.approaches.BloodthirstyColdBlooded" value="1"{{#ife systemData.approaches.BloodthirstyColdBlooded "1"}} checked="checked"{{/ife}} />
       </td>
       <td class="table-rombs"><i class="fa-solid fa-rhombus approaches-rombs"></i></td>
-      <td class="table-130px">
+      <td class="table-130px{{#ife systemData.approaches.BloodthirstyColdBlooded "2"}} border-round-true{{/ife}}">
         <input type="radio" name="system.approaches.BloodthirstyColdBlooded" value="2"{{#ife systemData.approaches.BloodthirstyColdBlooded "2"}} checked="checked"{{/ife}} />&nbsp;
-        {{localize "CZT.Actor.Approaches.ColdBlooded"}}        
+        <span class="roll-approach" appr-id="BloodthirstyColdBlooded" appr-val="2">{{localize "CZT.Actor.Approaches.ColdBlooded"}}</span>        
       </td>
       <td rowspan="3" class="aprt-right">&nbsp;</td>
       <td rowspan="3" class="table-equipment">
         <ul>
           {{#each isEquip as |item key|}}
             <li item-id="{{item.id}}" item-type="{{item.type}}">
-              {{item.name}} <i class="fa-solid fa-trash sheet-item-del"></i>
+               {{item.name}}<!-- <span class="element-img"><img src="{{item.img}}"></span>--> <i class="fa-solid fa-trash sheet-item-del"></i>
             </li>
           {{/each}}
         </ul>
       </td>
     </tr>
     <tr>
-      <td class="table-align-right">
-        {{localize "CZT.Actor.Approaches.Elusive"}}&nbsp;
+      <td class="table-align-right table-115px{{#ife systemData.approaches.ElusiveImpenetrable "1"}} border-round-true2{{/ife}}">
+        <span class="roll-approach" appr-id="ElusiveImpenetrable" appr-val="1">{{localize "CZT.Actor.Approaches.Elusive"}}&nbsp;</span>
         <input type="radio" name="system.approaches.ElusiveImpenetrable" value="1"{{#ife systemData.approaches.ElusiveImpenetrable "1"}} checked="checked"{{/ife}} />
       </td>
       <td class="table-rombs"><i class="fa-solid fa-rhombus approaches-rombs"></i></td>
-      <td>
+      <td class="table-130px {{#ife systemData.approaches.ElusiveImpenetrable "2"}}border-round-true{{/ife}}">
         <input type="radio" name="system.approaches.ElusiveImpenetrable" value="2"{{#ife systemData.approaches.ElusiveImpenetrable "2"}} checked="checked"{{/ife}} />&nbsp;  
-        {{localize "CZT.Actor.Approaches.Impenetrable"}}        
+        <span class="roll-approach" appr-id="ElusiveImpenetrable" appr-val="2">{{localize "CZT.Actor.Approaches.Impenetrable"}}</span>        
       </td>
     </tr>
     <tr>
-      <td class="table-align-right">
-        {{localize "CZT.Actor.Approaches.Confident"}}&nbsp;
+      <td class="table-align-right table-115px{{#ife systemData.approaches.ConfidentCalculating "1"}} border-round-true2{{/ife}}">
+        <span class="roll-approach" appr-id="ConfidentCalculating" appr-val="1">{{localize "CZT.Actor.Approaches.Confident"}}&nbsp;</span>
         <input type="radio" name="system.approaches.ConfidentCalculating" value="1"{{#ife systemData.approaches.ConfidentCalculating "1"}} checked="checked"{{/ife}} />
       </td>
       <td class="table-rombs"><i class="fa-solid fa-rhombus approaches-rombs"></i></td>
-      <td>
+      <td class="table-130px {{#ife systemData.approaches.ConfidentCalculating "2"}}border-round-true{{/ife}}">
         <input type="radio" name="system.approaches.ConfidentCalculating" value="2"{{#ife systemData.approaches.ConfidentCalculating "2"}} checked="checked"{{/ife}} />&nbsp;  
-        {{localize "CZT.Actor.Approaches.Calculating"}}
+        <span class="roll-approach" appr-id="ConfidentCalculating" appr-val="2">{{localize "CZT.Actor.Approaches.Calculating"}}</span>
       </td>
     </tr>
   </table>
 
   <div class="actor-row actor-card-list">
     <div class="actor-column">
-
-
+      <ul class="cards-list">
+        {{#each isCards as |item key|}}
+          <li item-id="{{item.id}}" item-type="{{item.type}}">
+            <div class="card-name">{{item.name}}</div>
+            <div class="card-desc">{{item.description}}</div>
+          </li>
+        {{/each}}
+      </ul>
     </div>
   </div>
 

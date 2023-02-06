@@ -1,4 +1,71 @@
 <form>
-
-</form>
- 
+<div class="actor-wrapper">
+  <div class="actor-row dialog-select-mofidy">
+    <div class="actor-column">
+      {{#ife appr_id "BloodthirstyColdBlooded"}}
+        {{#ife appr_id 1}}
+          {{localize "CZT.Actor.Approaches.Bloodthirsty"}}
+        {{else}}
+          {{localize "CZT.Actor.Approaches.ColdBlooded"}}
+        {{/ife}}
+      {{/ife}}
+      {{#ife appr_id "ElusiveImpenetrable"}}
+        {{#ife appr_id 1}}
+          {{localize "CZT.Actor.Approaches.Elusive"}}
+        {{else}}
+          {{localize "CZT.Actor.Approaches.Impenetrable"}}
+        {{/ife}}
+      {{/ife}}
+      {{#ife appr_id "ConfidentCalculating"}}
+        {{#ife appr_id 1}}
+          {{localize "CZT.Actor.Approaches.Confident"}}
+        {{else}}
+          {{localize "CZT.Actor.Approaches.Calculating"}}
+        {{/ife}}
+      {{/ife}}
+      &nbsp;{{localize "CZT.Actor.Approach"}}:
+    </div>
+    <div class="actor-column">+{{appr_mod}}</div>
+  </div>
+  <div class="actor-row dialog-select-mofidy">
+      <div class="actor-column">{{localize "CZT.Rolls.YouModifyRoll"}}:</div>
+      <div class="actor-column">
+        <select name="set-mofidy">
+          <option value="-5">-5</option>
+          <option value="-4">-4</option>
+          <option value="-3">-3</option>
+          <option value="-2">-2</option>
+          <option value="-1">-1</option>
+          <option value="0" selected>0</option>
+          <option value="1">+1</option>
+          <option value="2">+2</option>
+          <option value="3">+3</option>
+          <option value="4">+4</option>
+          <option value="5">+5</option>
+      </select>
+    </div>
+  </div>
+  {{#if elements}}
+  <div class="actor-row dialog-select-mofidy">
+      <div class="actor-column">{{localize "CZT.Rolls.UseElement"}}</div>
+      <div class="actor-column">
+        <select name="myitem">
+          <option value="0" selected>{{localize "CZT.Common.Select.No"}}</option>
+          {{#each elements as |item key|}}
+            <option value="{{item.id}}">{{item.name}}</option>
+          {{/each}}
+        </select>
+      </div>
+  </div>
+  {{/if}}
+  {{#if myiteminuse}}
+  <div class="actor-row dialog-select-mofidy">
+      <div class="actor-column">{{localize "CZT.Rolls.MyItemInUse"}}</div>
+      <div class="actor-column">
+        <input type="checkbox" name="myiteminuse" />
+      </div>
+  </div>
+  {{/if}}
+  </div>
+</div>
+</form> 

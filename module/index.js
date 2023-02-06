@@ -40,6 +40,6 @@ Hooks.on("createItem", (itemData) => {
 
   const imgPath = `${game.system_path}/assets/card_token.png`;
 
-  itemData.img = imgPath;
+  //itemData.img = imgPath;
   itemData.token.img = imgPath;
 });

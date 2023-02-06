@@ -23,7 +23,7 @@ export class HeroActorSheet extends BaseActorSheet {
     context.systemData = context.data.system;
     context.config = CONFIG.CZT;
     context.isEquip = context.systemData.items.filter((i) => i.type === "equipment");
-    context.items = context.systemData.items;
+    context.isCards = context.systemData.items.filter((i) => i.type === "cards");
 
     console.log(context)
     return context;
@@ -34,22 +34,73 @@ export class HeroActorSheet extends BaseActorSheet {
 
     html.find('.actor-fury-triangle i').click(evt => this._onCheckWound(evt));
 
-    //html.find('.sheet-roll-attrs').click(evt => this._onActorRollAttrs(evt));
+    html.find('.roll-approach').click(evt => this._onActorRollApproach(evt));
 
     html.find('.sheet-item-del').click(evt => this._onActorItemDel(evt));
+
+    html.find('.get-card').click(evt => this._onActorGetCard(evt));
   }
 
   async _extractItem(data) {
 
-    if(Object.keys(data).includes("pack") && data.pack != "") {
-      return await this._getDocumentByPack(data);
+    const cmpnd_key = `Compendium.${game.system.id}.`;
+    const cmpnd_len = cmpnd_key.length;
+    const uuid = data.uuid;
+
+    if(uuid.slice(0, cmpnd_len) === cmpnd_key) {
+      const tmp = uuid.slice(cmpnd_len).split(".");
+      const pack = game.packs.get(game.system.id + '.' + tmp[0]);
+      return await pack.getDocument(tmp[1]);
+
     }else if(data.type == "Item"){
-      return game.items.get(data.id);
+      var item_id = uuid.replace("Item.", "");
+      return game.items.get(item_id);
+
     }else if(data.type == "Actor") {
-      return game.actors.get(data.id);
+      var actor_id = uuid.replace("Actor.", "");
+      return game.actors.get(actor_id);
     }
   }
   
+  async _onActorGetCard(evt) {
+    evt.preventDefault();
+    // Пробуем затащить из локальных карт, если нет, то из компендума
+    let cards = game.items.filter((i) => i.type === "cards");
+    let cards_len = cards.length;
+    if(cards_len === 0) {
+      const pack = game.packs.get(game.system.id + '.cards');
+      cards = await pack.getDocuments();
+      cards_len = cards.length;
+    } 
+    const rnd = getRandomInt(0, cards_len - 1);
+    const item = cards[rnd];
+
+    let items = duplicate(this.actor.system.items);
+
+    let newItem = {
+      "id": genId(),
+      "item_id": item._id,
+      "name": item.name,
+      "img": item.img,
+      "type": item.type,
+      "description": item.system.description
+    };
+
+    items.push(newItem);
+    this.actor.update({"system.items": items});
+
+    const html = await renderTemplate(`${game.system_path}/templates/chats/get-cards.hbs`, {
+      card_name: item.name,
+      card_desc: item.system.description
+    });
+
+    ChatMessage.create({
+      user: game.user._id,
+      speaker: ChatMessage.getSpeaker(),
+      content: html
+    });
+  }
+
   async _onCheckWound(evt) {
     evt.preventDefault();
     const wound_id = $(evt.currentTarget).attr('wound-name');
@@ -58,6 +109,54 @@ export class HeroActorSheet extends BaseActorSheet {
     await this.actor.update({ [`system.wounds.${wound_id}`] : wound_new});
   }
 
+  async rollApproach(appr_id, appr_val, appr_mod, html) {
+
+  }
+
+  async _onActorRollApproach(evt) {
+    evt.preventDefault();
+    const appr_id = $(evt.currentTarget).attr('appr-id');
+    const appr_val = $(evt.currentTarget).attr('appr-val');
+    let appr_mod;
+
+    const appr_curr = this.actor.system.approaches[appr_id];
+    if(appr_val == appr_curr) {
+      appr_mod = 2;
+    }else{
+      appr_mod = 1;
+    }
+
+    const template = await renderTemplate(`${game.system_path}/templates/dialogs/modify-attrs-roll.hbs`, {
+      myiteminuse: this.actor.system.myitemInUse,
+      conceptinuse: this.actor.system.conceptInUse,
+      elements: this.actor.system.items.filter((i) => i.type === "equipment"),
+      appr_val: appr_val,
+      appr_id: appr_id,
+      appr_mod: appr_mod
+    });
+    return new Promise(resolve => {
+      const data = {
+        title: game.i18n.localize("CZT.Rolls.Mod"),
+        content: template,
+        buttons: {
+          cancel: {
+            icon: '<i class="fas fa-times"></i>',
+            label: game.i18n.localize("CZT.Common.Buttons.Cancel"),
+            callback: html => resolve({cancelled: true})
+          },
+          yes: {
+            icon: '<i class="fas fa-check"></i>',
+            label: game.i18n.localize("CZT.Common.Select.Yes"),
+            callback: html => resolve(this.rollApproach(appr_id, appr_val, appr_mod, html))
+           }        
+        },
+        default: "cancel",
+        close: () => resolve({cancelled: true})
+      }
+      new Dialog(data, null).render(true);
+  });
+
+  }
 
   async _onActorRollWeapon(evt) {
     evt.preventDefault();
@@ -188,22 +287,22 @@ export class HeroActorSheet extends BaseActorSheet {
   }
 
   /** @override */
-  _onDrop(evt) { 
+  async _onDrop(evt) { 
     evt.preventDefault();
     const dragData = JSON.parse(evt.dataTransfer.getData("text/plain"));
-
+    
     if(dragData.type != "Item") return;
 
-    var item_id = dragData.uuid.replace("Item.", "");
-    var item =  game.items.get(item_id);
+    var item = await this._extractItem(dragData);
     let items = this.actor.system.items;
 
     let newItem = {
       "id": genId(),
-      "item_id": item_id,
+      "item_id": item._id,
       "name": item.name,
       "img": item.img,
-      "type": item.type
+      "type": item.type,
+      "description": item.system.description
     };
 
     items.push(newItem);

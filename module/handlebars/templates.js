@@ -11,10 +11,11 @@ export const preloadHandlebarsTemplates = async function () {
     `${game.system_path}/templates/dialogs/modify-attrs-roll.hbs`,
     `${game.system_path}/templates/dialogs/sheet-item-del.hbs`,
 
+    `${game.system_path}/templates/chats/get-cards.hbs`,
     `${game.system_path}/templates/chats/weapon-roll.hbs`,
     `${game.system_path}/templates/chats/attrs-roll.hbs`      
   ];
 
-  // Load the template parts
+  // Load the template parts 
   return loadTemplates(templatePaths); 
 };
