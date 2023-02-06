@@ -1,0 +1,67 @@
+ <div class="dice-roll">
+  <div class="dice-result">
+    <div class="dice-formula">
+      {{#ife appr_id "BloodthirstyColdBlooded"}}
+        {{#ife appr_id 1}}
+          {{localize "CZT.Actor.Approaches.Bloodthirsty"}}
+        {{else}}
+          {{localize "CZT.Actor.Approaches.ColdBlooded"}}
+        {{/ife}}
+      {{/ife}}
+      {{#ife appr_id "ElusiveImpenetrable"}}
+        {{#ife appr_id 1}}
+          {{localize "CZT.Actor.Approaches.Elusive"}}
+        {{else}}
+          {{localize "CZT.Actor.Approaches.Impenetrable"}}
+        {{/ife}}
+      {{/ife}}
+      {{#ife appr_id "ConfidentCalculating"}}
+        {{#ife appr_id 1}}
+          {{localize "CZT.Actor.Approaches.Confident"}}
+        {{else}}
+          {{localize "CZT.Actor.Approaches.Calculating"}}
+        {{/ife}}
+      {{/ife}}
+      &nbsp;{{localize "CZT.Actor.Approach"}}: 
+      {{formula}}</div>
+      <div class="dice-tooltip expanded">
+        <section class="tooltip-part">
+          <div class="dice">
+            <header class="part-header flexrow">
+              <span class="part-formula">{{formula}}</span>   
+              <span class="part-total">{{total}}</span>
+            </header>
+            <ol class="dice-rolls">
+              {{#each terms as |dice key|}}
+              <li class="roll die d6{{#ife dice.result 1}} min{{/ife}}{{#ife dice.result 6}} max{{/ife}}{{#ife dice.result 5}} max{{/ife}}">{{dice.result}}</li>
+              {{/each}}
+            </ol>
+        </div>
+      </section>
+    </div>
+
+    <table class="dices-total">
+      <tr>
+        <td>{{localize "CZT.Rolls.Table.Appr"}}</td>
+        <td>{{appr_mod}}d6</td>
+      </tr>
+      {{#if myitem}}
+      <tr>
+        <td>{{localize "CZT.Rolls.Table.MyItem"}}</td>
+        <td>+1d6</td>
+      </tr>
+      {{/if}}
+      {{#if element}}
+      <tr>
+        <td>{{localize "CZT.Rolls.Table.Element"}}</td>
+        <td>+1d6</td>
+      </tr>
+      {{/if}}
+      <tr>
+        <td>{{localize "CZT.Rolls.Table.Mod"}}</td>
+        <td>{{mod}}d6</td>
+      </tr>
+      <tr><td class="chat-reroll" colspan="2">{{localize "CZT.Rolls.Table.ReRoll"}}</td></tr>
+    </table>
+  </div>
+</div>

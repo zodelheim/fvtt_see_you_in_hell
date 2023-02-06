@@ -13,7 +13,8 @@ export const preloadHandlebarsTemplates = async function () {
 
     `${game.system_path}/templates/chats/get-cards.hbs`,
     `${game.system_path}/templates/chats/weapon-roll.hbs`,
-    `${game.system_path}/templates/chats/attrs-roll.hbs`      
+    `${game.system_path}/templates/chats/attrs-roll.hbs`,
+    `${game.system_path}/templates/chats/dices-roll.hbs`      
   ];
 
   // Load the template parts 

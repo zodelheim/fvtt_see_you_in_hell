@@ -31,17 +31,14 @@
       <div class="actor-column">{{localize "CZT.Rolls.YouModifyRoll"}}:</div>
       <div class="actor-column">
         <select name="set-mofidy">
-          <option value="-5">-5</option>
-          <option value="-4">-4</option>
-          <option value="-3">-3</option>
           <option value="-2">-2</option>
           <option value="-1">-1</option>
-          <option value="0" selected>0</option>
-          <option value="1">+1</option>
-          <option value="2">+2</option>
-          <option value="3">+3</option>
-          <option value="4">+4</option>
-          <option value="5">+5</option>
+          <option value="+0" selected>0</option>
+          <option value="+1">+1</option>
+          <option value="+2">+2</option>
+          <option value="+3">+3</option>
+          <option value="+4">+4</option>
+          <option value="+5">+5</option>
       </select>
     </div>
   </div>
@@ -49,7 +46,7 @@
   <div class="actor-row dialog-select-mofidy">
       <div class="actor-column">{{localize "CZT.Rolls.UseElement"}}</div>
       <div class="actor-column">
-        <select name="myitem">
+        <select name="elements">
           <option value="0" selected>{{localize "CZT.Common.Select.No"}}</option>
           {{#each elements as |item key|}}
             <option value="{{item.id}}">{{item.name}}</option>
@@ -62,7 +59,7 @@
   <div class="actor-row dialog-select-mofidy">
       <div class="actor-column">{{localize "CZT.Rolls.MyItemInUse"}}</div>
       <div class="actor-column">
-        <input type="checkbox" name="myiteminuse" />
+        <input type="checkbox" name="myiteminuse" value="1" />
       </div>
   </div>
   {{/if}}

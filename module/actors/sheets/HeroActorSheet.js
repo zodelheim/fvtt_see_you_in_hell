@@ -143,7 +143,40 @@ export class HeroActorSheet extends BaseActorSheet {
   }
 
   async rollApproach(appr_id, appr_val, appr_mod, html) {
+    const mod = html.find('select[name=set-mofidy] option:checked').val();
+    const element = html.find('select[name=elements] option:checked').val();
+    const myitem = html.find('input[name=myiteminuse]:checked').val();
 
+    let dices = appr_mod; // подход
+    dices += parseInt(mod); // select модификатор
+    if (typeof myitem !== 'undefined') {
+      dices += 1; // использую памятный предмет
+    }
+
+    if (parseInt(element) !== 0 ) {
+      dices += 1; // использую элемент
+    }
+
+    const formula = `${dices}d6`;
+    let roll = await new Roll(formula).evaluate({async: true});
+    const template = await renderTemplate(`${game.system_path}/templates/chats/dices-roll.hbs`, {
+      formula: formula,
+      result: roll.result,
+      total: roll.total,
+      appr_id: appr_id,
+      terms: roll.terms[0].results,
+      appr_mod: appr_mod,
+      myitem: (typeof myitem !== 'undefined')?true:false,
+      element: (parseInt(element) !== 0 )?true:false,
+      mod: mod
+    });
+
+    ChatMessage.create({
+      user: game.user._id,
+      speaker: ChatMessage.getSpeaker(),
+      content: template
+    });
+    
   }
 
   async _onActorRollApproach(evt) {
