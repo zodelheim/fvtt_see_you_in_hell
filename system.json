@@ -41,6 +41,6 @@
   "gridDistance": 1,
   "gridUnits": "m",
   "url": "https://github.com/zodelheim/fvtt_see_you_in_hell",
-  "manifest": "https://github.com/zodelheim/fvtt_see_you_in_hell/releases/latest/download/system.json",
-  "download": "https://github.com/zodelheim/fvtt_see_you_in_hell/releases/latest/download/see-you-in-hell.zip"
+  "manifest": "https://github.com/zodelheim/fvtt_see_you_in_hell/releases/download/v1.1/system.json",
+  "download": "https://github.com/zodelheim/fvtt_see_you_in_hell/archive/refs/tags/v1.1.zip"
 }
