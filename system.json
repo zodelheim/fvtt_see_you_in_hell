@@ -40,7 +40,7 @@
   "socket": true,
   "gridDistance": 1,
   "gridUnits": "m",
-  "url": "https://github.com/comat0zz/fvtt_see_you_in_hell",
-  "manifest": "https://github.com/comat0zz/fvtt_see_you_in_hell/releases/latest/download/system.json",
-  "download": "https://github.com/comat0zz/fvtt_see_you_in_hell/releases/latest/download/see-you-in-hell.zip"
+  "url": "https://github.com/zodelheim/fvtt_see_you_in_hell",
+  "manifest": "https://github.com/zodelheim/fvtt_see_you_in_hell/releases/latest/download/system.json",
+  "download": "https://github.com/zodelheim/fvtt_see_you_in_hell/releases/latest/download/see-you-in-hell.zip"
 }
